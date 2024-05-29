@@ -33,7 +33,7 @@ class Perceptron(object):
     
     """
 
-    def __init__(self, eta=0.01, n_iter=50, random_state=1):
+    def __init__(self, eta=0.01, n_iter=50, random_state=1): # this is two features: eta, n_iter (passes over the training dataset)
         self.eta = eta
         self.n_iter = n_iter
         self.random_state = random_state
@@ -56,7 +56,7 @@ class Perceptron(object):
         """
 
         rgen = np.random.RandomState(self.random_state)
-        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1])
+        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1]) # scale is standard deviation
         self.errors_ = []
 
         for _ in range(self.n_iter):
@@ -76,3 +76,9 @@ class Perceptron(object):
     def predict(self, X):
         """Return class label after unit step"""
         return np.where(self.net_input(X) >= 0.0, 1, -1)
+
+
+v1 = np.array([1, 2, 3])
+v2 = 0.5 * v1
+np.across(v1.dot(v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
+
