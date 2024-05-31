@@ -82,3 +82,22 @@ v1 = np.array([1, 2, 3])
 v2 = 0.5 * v1
 np.across(v1.dot(v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
 
+# training a perceptron model on the iris dataset
+
+# reading in the iris data ! Please remember
+
+# works verified
+s = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+print('URL:', s)
+
+df = pd.read_csv(s,
+                 header=None,
+                 encoding='utf-8')
+
+df.tail()
+
+# works verified
+
+df = pd.read_csv('../iris.data', 
+                header=None, encoding='utf-8')
+df.tail()
