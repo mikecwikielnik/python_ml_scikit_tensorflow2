@@ -121,7 +121,20 @@ plt.xlabel('sepal length [cm]')
 plt.ylabel('petal length [cm]')
 plt.legend(loc='upper left')
 
-plt.savefig('02_06.png', dpi=300)
+# plt.savefig('02_06.png', dpi=300)
 plt.show()
 
+
+# ### Training the perceptron model
+
+ppn = Perceptron(eta=0.1, n_iter=10)
+
+ppn.fit(X, y)
+
+plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Number of updates')
+
+# plt.savefig('02_07.png', dpi=300)
+plt.show()
 
