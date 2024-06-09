@@ -419,4 +419,27 @@ class AdalineSGD(object):
         return np.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
     
 
-    
+
+ada_sgd = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
+ada_sgd.fit(X_std, y)
+
+plot_decision_regions(X_std, y, classifier=ada_sgd)
+plt.title('Adaline = Stochastic Gradient Descent')
+plt.xlabel('sepal length [standardized]')
+plt.ylabel('petal length [standardized]')
+plt.legend(loc='upper left')
+
+plt.tight_layout()
+plt.savefig('02_15_1.png', dpi=300)
+plt.show()
+
+plt.plot(range(1, len(ada_sgd.cost_) + 1), ada_sgd.cost_, marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Average Cost')
+
+plt.tight_layout()
+plt.savefig('02_15_2.png', dpi=300)
+plt.show()
+
+ada_sgd.partial_fit(X_std[0, :], y[0])
+
