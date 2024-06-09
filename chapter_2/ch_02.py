@@ -397,4 +397,26 @@ class AdalineSGD(object):
         self.w_ = self.rgen.normal(loc=0.0, scale=0.01, size = 1 + m)
         self.w_initialized = True   
 
+    def _update_weights(self, xi, target):
+        """Apply Adadline learning rule to update the weights"""
+        output = self.activation(self.net_input(xi))
+        error = (target - output)
+        self.w_[1:] += self.eta * xi.dot(error)
+        self.w_[0] += self.eta * error
+        cost = 0.5 * error**2
+        return cost
+    
+    def net_input(self, X):
+        """Calculate net input"""
+        return np.dot(X, self.w_[1:]) + self.w_[0]
+    
+    def activation(self, X):
+        """Compute linear activation"""
+        return X
+    
+    def predict(self, X):
+        """Return class label after unit step"""
+        return np.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
+    
+
     
