@@ -41,4 +41,8 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size = 0.3, random_state=1, stratify=y)
 
 
+print('Labels count in y:', np.bincount(y))
+print('Labels count in y_train', np.bincount(y_train))
+print('Labels count in y_test', np.bincount(y_test))
+
 
