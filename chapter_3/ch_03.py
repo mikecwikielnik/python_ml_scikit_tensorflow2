@@ -58,3 +58,6 @@ X_test_std = sc.transform(X_test)
 ppn = Perceptron(eta0=0.1, random_state=1)
 ppn.fit(X_train_std, y_train)
 
+y_pred = ppn.predict(X_test_std)
+print('Misclassified examples: %d' % (y_test != y_pred).sum())
+
