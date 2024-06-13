@@ -46,3 +46,10 @@ print('Labels count in y_train', np.bincount(y_train))
 print('Labels count in y_test', np.bincount(y_test))
 
 
+# Standardizing the features:
+
+sc = StandardScaler()
+sc.fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
+
