@@ -61,3 +61,7 @@ ppn.fit(X_train_std, y_train)
 y_pred = ppn.predict(X_test_std)
 print('Misclassified examples: %d' % (y_test != y_pred).sum())
 
+print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+
+print('Accuracy: %.3f' % ppn.score(X_test_std, y_test))
+
