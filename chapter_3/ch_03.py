@@ -133,7 +133,7 @@ plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
 
 plt.tight_layout()
-plt.savefig('03_01.png', dpi=300)
+# plt.savefig('03_01.png', dpi=300)
 plt.show()
 
 # Modeling class probabilities via logistic regression
@@ -158,7 +158,7 @@ ax = plt.gca()
 ax.yaxis.grid(True)
 
 plt.tight_layout()
-plt.savefig('03_02.png', dpi=300)
+# plt.savefig('03_02.png', dpi=300)
 plt.show()
 
 
@@ -185,7 +185,7 @@ plt.xlabel('$\phi$(z)')
 plt.ylabel('J(w)')
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('03_04.png', dpi=300)
+# plt.savefig('03_04.png', dpi=300)
 plt.show()
 
 
@@ -254,9 +254,35 @@ class LogisticRegression(object):
         """Calculate net input"""
         return np.dot(X, self.w_[1:]) + self.w_[0]
     
+    def activation(self, z):
+        """Compute logistic sigmoid activation"""
+        return 1. / (1. + np.exp(-np.clip(z, -250, 250)))
+    
     def predict(self, X):
         """Return class label after unit step"""
         return np.where(self.net_input(X) >= 0.0, 1, 0)
         # equivalent to:
         # return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
+
+
+
+
+X_train_01_subset = X_train_std[(y_train == 0) | (y_train == 1)]
+y_train_01_subset = y_train[(y_train == 0) | (y_train == 1)]
+
+lrgd = LogisticRegression(eta=0.05, n_iter=1000, random_state=1)
+lrgd.fit(X_train_01_subset,
+         y_train_01_subset)
+
+plot_decision_regions(X=X_train_01_subset,
+                      y=y_train_01_subset,
+                      classifier=lrgd)
+
+plt.xlabel('petal length [standardized]')                      
+plt.ylabel('petal width [standardized]')
+plt.legend(loc='upper left')
+
+plt.tight_layout()
+plt.savefig('03_05.png', dpi=300)
+plt.show()
 
