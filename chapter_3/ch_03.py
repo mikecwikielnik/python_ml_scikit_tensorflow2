@@ -303,3 +303,7 @@ plt.show()
 
 
 lr.predict_proba(X_test_std[:3, :])
+
+
+lr.predict_proba(X_test_std[:3, :]).sum(axis=1)
+
