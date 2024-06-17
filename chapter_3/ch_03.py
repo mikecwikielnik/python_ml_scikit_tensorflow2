@@ -310,3 +310,5 @@ lr.predict_proba(X_test_std[:3, :]).argmax(axis=1)
 
 lr.predict(X_test_std[:3, :])
 
+lr.predict(X_test_std[0, :].reshape(1, -1))
+
