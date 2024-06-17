@@ -189,7 +189,7 @@ plt.tight_layout()
 plt.show()
 
 
-class LogisticRegression(object):
+class LogisticRegressionGD(object):
     """Logistic Regression Classifier using gradient descent.
 
     Parameters
@@ -270,7 +270,7 @@ class LogisticRegression(object):
 X_train_01_subset = X_train_std[(y_train == 0) | (y_train == 1)]
 y_train_01_subset = y_train[(y_train == 0) | (y_train == 1)]
 
-lrgd = LogisticRegression(eta=0.05, n_iter=1000, random_state=1)
+lrgd = LogisticRegressionGD(eta=0.05, n_iter=1000, random_state=1)
 lrgd.fit(X_train_01_subset,
          y_train_01_subset)
 
@@ -302,3 +302,4 @@ plt.savefig('03_06.png', dpi=300)
 plt.show()
 
 
+lr.predict_proba(X_test_std[:3, :])
