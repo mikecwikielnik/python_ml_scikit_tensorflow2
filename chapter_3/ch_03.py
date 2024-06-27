@@ -353,6 +353,12 @@ plt.xlabel('petal length [standardized]')
 plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
 plt.tight_layout()
-plt.savefig('03_11.png', dpi=300)
+# plt.savefig('03_11.png', dpi=300)
 plt.show()
+
+# Alternative implementations in scikit-learn
+
+ppn = SGDClassifier(loss = 'perceptron')
+lr = SGDClassifier(loss = 'log')
+svm = SGDClassifier(loss = 'hinge')
 
