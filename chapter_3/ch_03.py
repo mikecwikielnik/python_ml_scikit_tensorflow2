@@ -384,7 +384,18 @@ plt.xlim([-3, 3])
 plt.ylim([-3, 3])
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('03_12.png', dpi=300)
+# plt.savefig('03_12.png', dpi=300)
 plt.show()
 
+
+# Using the kernel trick to find separating hyperplanes in higher dimensional space
+
+svm = SVC(kernel='rbf', random_state=1, gamma=0.10, C=10.0)
+svm.fit(X_xor, y_xor)
+plot_decision_regions(X_xor, y_xor,
+                      classifier=svm)
+plt.legend(loc='upper left')
+plt.tight_layout()
+plt.savefig('03_14.png', dpi=300)
+plt.show()
 
