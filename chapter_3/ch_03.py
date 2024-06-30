@@ -472,7 +472,7 @@ ax.axhline(y=1.0, linewidth=1, color='k', linestyle='--')
 plt.ylim([0, 1.1])
 plt.xlabel('p(i=1)')
 plt.ylabel('impurity index')
-plt.savefig('03_19.png', dpi=300, bbox_inches='tight')
+# plt.savefig('03_19.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # building a decision tree
@@ -492,6 +492,13 @@ plt.xlabel('petal length [cm]')
 plt.ylabel('petal width [cm]')
 plt.legend(loc='upper left')
 plt.tight_layout()
-plt.savefig('03_20.png', dpi=300)
+# plt.savefig('03_20.png', dpi=300)
+plt.show()
+
+
+
+
+tree.plot_tree(tree_model)
+plt.savefig('03_21_1.pdf')
 plt.show()
 
