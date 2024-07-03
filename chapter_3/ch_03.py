@@ -478,7 +478,7 @@ plt.show()
 # building a decision tree
 
 tree_model = DecisionTreeClassifier(criterion='gini',
-                                    max_depth=4,
+                                    max_depth=3,
                                     random_state=1)
 tree_model.fit(X_train, y_train)
 
@@ -517,4 +517,22 @@ dot_data = export_graphviz(tree_model,
                            out_file=None)
 graph = graph_from_dot_data(dot_data)
 graph.write_png('tree.png')
+
+# Combining weak to strong learners via random forests
+
+forest = RandomForestClassifier(criterion='gini',
+                                n_estimators=25,
+                                random_state=1,
+                                n_jobs=2)
+forest.fit(X_train, y_train)                                
+
+plot_decision_regions(X_combined, y_combined,
+                      classifier=forest, test_idx=range(105, 150))
+
+plt.xlabel('petal length [cm]')                      
+plt.ylabel('petal width [cm]')
+plt.legend(loc='upper left')
+plt.tight_layout()
+plt.savefig('03_22.png', dpi=300)
+plt.show()
 
