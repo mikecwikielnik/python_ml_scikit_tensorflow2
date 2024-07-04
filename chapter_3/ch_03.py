@@ -533,6 +533,24 @@ plt.xlabel('petal length [cm]')
 plt.ylabel('petal width [cm]')
 plt.legend(loc='upper left')
 plt.tight_layout()
-plt.savefig('03_22.png', dpi=300)
+# plt.savefig('03_22.png', dpi=300)
+plt.show()
+
+
+# K-nearest neighbors - a lazy learning algo
+
+knn = KNeighborsClassifier(n_neighbors=5,
+                           p=2,
+                           metric='minkowski')
+knn.fit(X_train_std, y_train)                        
+
+plot_decision_regions(X_combined_std, y_combined,                      
+                      classifier=knn, test_idx=range(105, 150))
+
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
+plt.legend(loc='upper left')
+plt.tight_layout()
+# plt.savefig('03_24.png', dpi=300)
 plt.show()
 
