@@ -47,3 +47,20 @@ df.dropna(axis=0)
 # remove columns that contain missing values
 
 df.dropna(axis=1)
+
+# dropna supports additional params
+
+# only drop rows where all columns are NaN
+# (returns the whole array here since we don't
+# have a row with all values NaN)
+
+df.dropna(how='all')
+
+# drop rows that have fewer than 3 real values
+
+df.dropna(thresh=4)
+
+# only drop rows where NaN appear in specific columns (here: 'C')
+
+df.dropna(subset=['C'])
+
