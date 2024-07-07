@@ -95,3 +95,12 @@ df = pd.DataFrame([['green', 'M', 10.1, 'class2'],
 df.columns = ['color', 'size', 'price', 'classlabel']
 
 df
+
+# mapping ordinal features
+
+size_mapping = {'XL': 3,
+                'L': 2,
+                'M': 1}
+
+df['size'] = df['size'].map(size_mapping)
+df
