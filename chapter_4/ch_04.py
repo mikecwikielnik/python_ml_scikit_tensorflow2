@@ -104,3 +104,8 @@ size_mapping = {'XL': 3,
 
 df['size'] = df['size'].map(size_mapping)
 df
+
+
+inv_size_mapping = {v: k for k, v in size_mapping.items()}
+df['size'].map(inv_size_mapping)
+
