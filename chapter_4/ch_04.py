@@ -32,3 +32,9 @@ df = pd.read_csv(StringIO(csv_data))
 df
 
 df.isnull().sum()
+
+# access the underlying NumPy array
+# via the `values` attribute
+
+df.values
+
