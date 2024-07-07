@@ -64,3 +64,16 @@ df.dropna(thresh=4)
 
 df.dropna(subset=['C'])
 
+# Imputing missing values
+
+# again: our original way
+
+df.values
+
+# impute missing values via the column mean
+
+imr = SimpleImputer(missing_values=np.nan, strategy='mean')
+imr = imr.fit(df.values)
+imputed_data = imr.transform(df.values)
+imputed_data
+
