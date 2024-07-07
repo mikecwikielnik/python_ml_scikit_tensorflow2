@@ -43,3 +43,7 @@ df.values
 # remove rows that contain missing values
 
 df.dropna(axis=0)
+
+# remove columns that contain missing values
+
+df.dropna(axis=1)
