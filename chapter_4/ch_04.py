@@ -77,3 +77,6 @@ imr = imr.fit(df.values)
 imputed_data = imr.transform(df.values)
 imputed_data
 
+
+
+df.fillna(df.mean())
