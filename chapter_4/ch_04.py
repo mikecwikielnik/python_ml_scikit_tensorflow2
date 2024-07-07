@@ -38,3 +38,8 @@ df.isnull().sum()
 
 df.values
 
+# Eliminating training examples or features with missing values
+
+# remove rows that contain missing values
+
+df.dropna(axis=0)
