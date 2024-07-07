@@ -109,3 +109,11 @@ df
 inv_size_mapping = {v: k for k, v in size_mapping.items()}
 df['size'].map(inv_size_mapping)
 
+# encoding class labels
+
+# create a mapping dict
+# to convert class labels from strings to integers
+
+class_mapping = {label: idx for idx, label in enumerate(np.unique(df['classlabel']))}
+class_mapping
+
