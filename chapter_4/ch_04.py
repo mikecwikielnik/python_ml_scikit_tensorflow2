@@ -136,3 +136,7 @@ class_le = LabelEncoder()
 y = class_le.fit_transform(df['classlabel'].values)
 y
 
+# reverse mapping
+
+class_le.inverse_transform(y)
+
