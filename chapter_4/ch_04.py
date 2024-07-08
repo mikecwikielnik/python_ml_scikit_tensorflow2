@@ -122,3 +122,9 @@ class_mapping
 # to convert class labels from strings to integers
 df['classlabel'] = df['classlabel'].map(class_mapping)
 df
+
+# reverse the class label mapping
+inv_class_mapping = {v: k for k, v in class_mapping.items()}
+df['classlabel'] = df['classlabel'].map(inv_class_mapping)
+df
+
