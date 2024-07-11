@@ -154,3 +154,8 @@ X = df[['color', 'size', 'price']].values
 color_ohe = OneHotEncoder()
 color_ohe.fit_transform(X[:, 0].reshape(-1, 1)).toarray()
 
+
+X = df[['color', 'size', 'price']].values
+c_transf = ColumnTransformer([ ('onehot', OneHotEncoder(), [0]),
+                              ('nothing', 'passthrough', [1, 2])])
+c_transf.fit_transform(X).astype(float)
