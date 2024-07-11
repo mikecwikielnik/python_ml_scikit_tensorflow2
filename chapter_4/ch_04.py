@@ -140,3 +140,12 @@ y
 
 class_le.inverse_transform(y)
 
+
+
+# Performing one-hot encoding on nominal features
+
+X = df[['color', 'size', 'price']].values
+color_le = LabelEncoder()
+X[:, 0] = color_le.fit_transform(X[:, 0])
+X
+
