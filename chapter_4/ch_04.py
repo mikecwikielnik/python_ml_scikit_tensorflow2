@@ -149,3 +149,8 @@ color_le = LabelEncoder()
 X[:, 0] = color_le.fit_transform(X[:, 0])
 X
 
+
+X = df[['color', 'size', 'price']].values
+color_ohe = OneHotEncoder()
+color_ohe.fit_transform(X[:, 0].reshape(-1, 1)).toarray()
+
