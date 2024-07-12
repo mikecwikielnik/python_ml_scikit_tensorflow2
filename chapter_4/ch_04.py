@@ -159,3 +159,14 @@ X = df[['color', 'size', 'price']].values
 c_transf = ColumnTransformer([ ('onehot', OneHotEncoder(), [0]),
                               ('nothing', 'passthrough', [1, 2])])
 c_transf.fit_transform(X).astype(float)
+
+
+# one-hot encoding via pandas
+
+pd.get_dummies(df[['price', 'color', 'size']])
+
+
+# multicollinearity guard in get_dummies
+
+pd.get_dummies(df[['price', 'color', 'size']], drop_first=True)
+
