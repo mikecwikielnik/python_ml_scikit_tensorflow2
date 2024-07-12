@@ -189,3 +189,12 @@ df = pd.DataFrame([['green', 'M', 10.1, 'class2'],
 
 df.columns = ['color', 'size', 'price', 'classlabel']
 df
+
+# We can use the apply method of pandas' DataFrames to write custom lambda expressions in order to encode these variables using the value-threshold approach:
+
+df['x > M'] = df['size'].apply(lambda x: 1 if x in {'L', 'XL'} else 0)
+df['x > L'] = df['size'].apply(lambda x: 1 if x == 'XL' else 0)
+
+del df['size']
+df
+
