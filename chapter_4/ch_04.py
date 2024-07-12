@@ -198,3 +198,9 @@ df['x > L'] = df['size'].apply(lambda x: 1 if x == 'XL' else 0)
 del df['size']
 df
 
+# Partitioning a dataset into a separate training and test set
+
+df_wine = pd.read_csv('wine.data', header=None)
+
+df_wine.columns = ['Class label', 'Alcohol',
+]
