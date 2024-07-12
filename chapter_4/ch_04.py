@@ -170,3 +170,11 @@ pd.get_dummies(df[['price', 'color', 'size']])
 
 pd.get_dummies(df[['price', 'color', 'size']], drop_first=True)
 
+
+# multicollinearity guard for the OneHotEncoder
+
+color_ohe = OneHotEncoder(categories='auto', drop='first')
+c_transf = ColumnTransformer([ ('onehot', color_ohe, [0]),
+                                ('nothing', 'passthrough', [1, 2])])
+c_transf.fit_transform(X).astype(float)                            
+
