@@ -233,3 +233,11 @@ stdsc = StandardScaler()
 X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
 
+# A manual example
+
+ex = np.array([0, 1, 2, 3, 4, 5])
+
+print('standardized:', (ex - ex.mean()) / ex.std())
+
+print('normalized:', (ex - ex.min()) / (ex.max() - ex.min()))
+
