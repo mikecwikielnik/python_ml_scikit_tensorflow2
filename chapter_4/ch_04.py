@@ -202,5 +202,11 @@ df
 
 df_wine = pd.read_csv('wine.data', header=None)
 
-df_wine.columns = ['Class label', 'Alcohol',
-]
+df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash',
+                   'Alcalinity of ash', 'Magnesium', 'Total phenols',
+                   'Flavanoids', 'Nonflavanoid phenols', 'Proanthocyanins',
+                   'Color Intensity', 'Hue', 'OD280/OD315 of diluted wines',
+                   'Proline'] 
+
+print('Class labels', np.unique(df_wine['Class label']))
+df_wine.head()
