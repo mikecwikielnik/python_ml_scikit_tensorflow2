@@ -219,7 +219,17 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3,  rand
 
 # Bringing features onto the same scale
 
+# NORMALIZATION
+
 mms = MinMaxScaler()
 X_train_norm = mms.fit_transform(X_train)
 X_test_norm = mms.transform(X_test)
+
+
+
+# STANDARDIZATION
+
+stdsc = StandardScaler()
+X_train_std = stdsc.fit_transform(X_train)
+X_test_std = stdsc.transform(X_test)
 
