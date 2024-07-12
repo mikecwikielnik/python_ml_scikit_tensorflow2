@@ -241,3 +241,31 @@ print('standardized:', (ex - ex.mean()) / ex.std())
 
 print('normalized:', (ex - ex.min()) / (ex.max() - ex.min()))
 
+
+
+# Selecting meaningful features
+
+# L1 and L2 regularization as penalites against model complexity
+
+# A geometric interpretation on L2 regularization
+
+
+
+# Sparse solutions with L1-regularization
+
+
+
+# For regularized models in scikit-learn that support L1 regularization, 
+# we can simply set the `penalty` param to `'l1'` to obtain a sparse solution:
+
+
+LogisticRegression(penalty = 'l1', solver = 'liblinear', multi_class=  'ovr')
+
+
+lr = LogisticRegression(penalty= 'l1', C=1.0, solver = 'liblinear', multi_class = 'ovr')
+# C=1.0 is default. You can increase or decrease it 
+# to make the regularization effect stronger or weaker, respectively
+lr.fit(X_train_std, y_train)
+print('Training accuracy:', lr.score(X_train_std, y_train))
+print('Test accuracy', lr.score(X_test_std, y_test))
+
