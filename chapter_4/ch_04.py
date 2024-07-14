@@ -272,3 +272,6 @@ print('Test accuracy', lr.score(X_test_std, y_test))
 
 
 lr.intercept_
+
+
+lr.coef_
