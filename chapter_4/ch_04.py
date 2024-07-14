@@ -269,3 +269,6 @@ lr.fit(X_train_std, y_train)
 print('Training accuracy:', lr.score(X_train_std, y_train))
 print('Test accuracy', lr.score(X_test_std, y_test))
 
+
+
+lr.intercept_
