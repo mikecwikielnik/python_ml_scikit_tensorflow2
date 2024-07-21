@@ -368,3 +368,9 @@ class SBS():
         return score
 
 
+knn = KNeighborsClassifier(n_neighbors = 5)
+
+# selecting features
+sbs = SBS(knn, k_features=1)
+sbs.fit(X_train_std, y_train)
+
