@@ -398,3 +398,8 @@ knn.fit(X_train_std, y_train)
 print('Training accuracy:', knn.score(X_train_std, y_train))
 print('Test accuracy', knn.score(X_test_std, y_test))
 
+
+knn.fit(X_train_std[:, k3], y_train)
+print('Training accuracy:', knn.score(X_train_std[:, k3], y_train))
+print('Test accuracy:', knn.score(X_test_std[:, k3], y_test))
+
