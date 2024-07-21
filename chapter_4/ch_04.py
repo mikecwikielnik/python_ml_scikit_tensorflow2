@@ -403,3 +403,40 @@ knn.fit(X_train_std[:, k3], y_train)
 print('Training accuracy:', knn.score(X_train_std[:, k3], y_train))
 print('Test accuracy:', knn.score(X_test_std[:, k3], y_test))
 
+
+
+# Assessing feature importance with Random Forests
+
+
+
+# no standardized or normalized features in tree-based models
+
+
+
+feat_labels = df_wine.columns[1:]
+
+forest = RandomForestClassifier(n_estimators = 500,
+                                random_state = 1)
+
+forest.fit(X_train, y_train)                            
+importances = forest.feature_importances_
+
+indices = np.argsort(importances)[::-1]
+
+for f in range(X_train.shape[1]):
+    print("%2d) %-*s %f" % (f + 1, 30,
+                            feat_labels[indices[f]],
+                            importances[indices[f]]))
+
+plt.title('Feature Importance')                            
+plt.bar(range(X_train.shape[1]),
+        importances[indices],
+        align='center')
+
+plt.xticks(range(X_train.shape[1]),
+            feat_labels[indices], rotation=90)        
+plt.xlim([-1, X_train.shape[1]])            
+plt.tight_layout()
+plt.savefig('04_09.png', dpi=300)
+plt.show()
+
