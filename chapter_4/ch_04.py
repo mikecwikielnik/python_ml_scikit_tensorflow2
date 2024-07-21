@@ -440,3 +440,20 @@ plt.tight_layout()
 plt.savefig('04_09.png', dpi=300)
 plt.show()
 
+
+
+sfm = SelectFromModel(forest, threshold=0.1, prefit=True)
+X_selected = sfm.transform(X_train)
+print('Number of features that meet this threshold criterion',
+        X_selected.shape[1])
+
+# Now, let's print the 3 features that met the threshold criterion for feature selection that we set earlier (note that this code snippet does not appear in the actual book, was added later for illustrative purposes):
+
+
+for f in range(X_selected.shape[1]):
+    print("%2d) %-*s %f" % (f + 1, 30,
+                            feat_labels[indices[f]],
+                            importances[indices[f]]))
+
+
+                            
