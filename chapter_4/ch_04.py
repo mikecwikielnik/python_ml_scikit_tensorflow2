@@ -387,3 +387,8 @@ plt.tight_layout()
 # plt.savefig('04_08.png', dpi=300)
 plt.show()
 
+
+
+k3 = list(sbs.subsets_[10])
+print(df_wine.columns[1:][k3])
+
