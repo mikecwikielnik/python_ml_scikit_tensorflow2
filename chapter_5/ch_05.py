@@ -52,3 +52,11 @@ sc = StandardScaler()
 X_train_std = sc.fit_transform(X_train)
 X_test_std = sc.transform(X_test)
 
+
+# Eigendecomposition of the covariance matrix
+
+cov_mat = np.cov(X_train_std.T)
+eigen_vals, eigen_vecs = np.linalg.eig(cov_mat)
+
+print('\nEigenvalues \n%s' % eigen_vals)
+
