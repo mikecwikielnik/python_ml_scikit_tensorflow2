@@ -22,3 +22,16 @@ from sklearn.datasets import make_circles
 from sklearn.decomposition import KernelPCA
 
 
+# Unsupervised dimensionality reduction via principal componenet analysis
+
+# The main steps behind principal component analysis
+
+
+df_wine = pd.read_csv('wine.data', header=None)
+
+df_wine.columns = ['Class label', 'Alcohol', 'Malic acid', 'Ash',
+                   'Alcalinity of ash', 'Magnesium', 'Total phenols',
+                   ]
+
+df_wine.head()
+
