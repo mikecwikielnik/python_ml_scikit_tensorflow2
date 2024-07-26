@@ -79,3 +79,15 @@ plt.tight_layout()
 # plt.savefig('05_02.png', dpi=300)
 plt.show()
 
+
+# Feature transformation
+
+
+# Make a list of (eigenvalue, eigenvector) tuples
+
+eigen_pairs = [(np.abs(eigen_vals[i]), eigen_vecs[:, i])
+               for i in range(len(eigen_vals))]
+
+# Sort the (eigenvalue, eigenvector) tuples from high to low
+eigen_pairs.sort(key=lambda k: k[0], reverse=True)
+
