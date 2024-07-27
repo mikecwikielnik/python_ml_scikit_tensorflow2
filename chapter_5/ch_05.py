@@ -117,3 +117,38 @@ plt.tight_layout()
 # plt.savefig('05_03.png', dpi = 300)
 plt.show()
 
+
+
+# Principal component analysis in scikit-learn 
+
+
+# added code 
+
+pca = PCA()
+X_train_pca = pca.fit_transform(X_train_std)
+pca.explained_variance_ratio_
+
+
+
+plt.bar(range(1, 14), pca.explained_variance_ratio_, alpha=0.5, align='center')
+plt.step(range(1, 14), np.cumsum(pca.explained_variance_ratio_), where='mid')
+plt.ylabel('Explained variance ratio')
+plt.xlabel('Principal components')
+
+# plt.show()
+
+
+pca = PCA(n_components=2)
+X_train_pca = pca.fit_transform(X_train_std)
+X_test_pca = pca.transform(X_test_std)
+
+
+
+plt.scatter(X_train_pca[:, 0], X_train_pca[:, 1])
+plt.xlabel('PC 1')
+plt.xlabel('PC 2')
+plt.show()
+
+
+
+
