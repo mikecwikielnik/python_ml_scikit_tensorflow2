@@ -290,3 +290,22 @@ print('Between-class scatter matrix: %sx%s' % (S_B.shape[0], S_B.shape[1]))
 eigen_vals, eigen_vecs = np.linalg.eig(np.linalg.inv(S_W).dot(S_B))
 
 
+# Sort eigenvectors in descending order of the eigenvalues:
+
+
+# Make  list of (eigenvalue, eigenvector) tuples (ordered pair)
+
+eigen_pairs = [(np.abs(eigen_vals[1]), eigen_vecs[:, i])
+               for i in range(len(eigen_vals))]
+
+# Sort the (eigenvalue, eigenvector) tuples (ordered pair) from high to low
+
+eigen_pairs = sorted(eigen_pairs, key=lambda k:  k[0], reverse = True)
+
+# Visually confirm that the list is correctly sorted by descreasing eigenvalues
+
+print('Eigenvalues in descending order:\n')
+for eigen_val in eigen_pairs:
+        print(eigen_val[0])
+
+        
