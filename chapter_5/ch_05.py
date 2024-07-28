@@ -281,3 +281,12 @@ for i, mean_vec in enumerate(mean_vecs):
         S_B += n * (mean_vec - mean_overall).dot((mean_vec - mean_overall).T)
 
 print('Between-class scatter matrix: %sx%s' % (S_B.shape[0], S_B.shape[1]))
+
+
+# Selecting linear discriminants for the new feature subspace
+
+# Solve the generalized eigenvalue problem for the matrix $S_W^{-1}S_B$:
+
+eigen_vals, eigen_vecs = np.linalg.eig(np.linalg.inv(S_W).dot(S_B))
+
+
