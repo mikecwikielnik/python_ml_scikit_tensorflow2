@@ -196,8 +196,16 @@ plt.xlabel('PC 1')
 plt.xlabel('PC 2')
 plt.legend(loc = 'lower left')
 plt.tight_layout()
-plt.savefig('05_04.png', dpi = 300)
+# plt.savefig('05_04.png', dpi = 300)
 plt.show()
 
+
+plot_decision_regions(X_test_pca, y_test, classifier=lr)
+plt.xlabel('PC 1')
+plt.ylabel('PC 2')
+plt.legend(loc='lower left')
+plt.tight_layout()
+# plt.savefig('05_05.png', dpi=300)
+plt.show()
 
 
