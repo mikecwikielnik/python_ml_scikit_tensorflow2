@@ -308,4 +308,18 @@ print('Eigenvalues in descending order:\n')
 for eigen_val in eigen_pairs:
         print(eigen_val[0])
 
-        
+
+
+tot = sum(eigen_vals.real)
+discr = [(i / tot) for i in sorted(eigen_vals.real, reverse=True)]
+cum_discr = np.cumsum(discr)
+
+plt.bar(range(1, 14), discr, alpha=0.5, align='center',
+        label = 'Individual "discriminability" ')
+plt.step(range(1, 14), cum_discr, where='mid',
+         label = 'Cumulative "discriminability" ')
+plt.ylabel(' "Discriminability" ratio')
+plt.ylim([-0.1, 1.1])
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('05_07.png', dpi=300)
