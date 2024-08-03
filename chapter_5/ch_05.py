@@ -331,3 +331,25 @@ w = np.hstack((eigen_pairs[0][1][:, np.newaxis].real,
                eigen_pairs[1][1][:, np.newaxis].real))
 print('Matrix W:\n', w)               
 
+
+
+# Projecting examples onto the new feature space
+
+
+X_train_lda = X_train_std.dot(w)
+colors = ['r', 'b', 'g']
+markers = ['s', 'x', 'o']
+
+for l, c, m in zip(np.unique(y_train), colors, markers):
+        plt.scatter(X_train_lda[y_train == 1, 0],
+                    X_train_lda[y_train == 1, 1] * (-1),
+                    c=c, label=l, marker=m)
+        
+plt.xlabel('LD 1')        
+plt.ylabel('LD 2')
+plt.legend(loc='lower right')
+plt.tight_layout()
+plt.savefig('05_08.png', dpi=300)
+plt.show()
+
+
