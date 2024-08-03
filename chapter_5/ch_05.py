@@ -322,4 +322,12 @@ plt.ylabel(' "Discriminability" ratio')
 plt.ylim([-0.1, 1.1])
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('05_07.png', dpi=300)
+# plt.savefig('05_07.png', dpi=300)
+plt.show()
+
+
+
+w = np.hstack((eigen_pairs[0][1][:, np.newaxis].real,
+               eigen_pairs[1][1][:, np.newaxis].real))
+print('Matrix W:\n', w)               
+
