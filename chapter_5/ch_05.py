@@ -353,3 +353,10 @@ plt.savefig('05_08.png', dpi=300)
 plt.show()
 
 
+# LDA via scikit-learn
+
+
+lda = LDA(n_components=2)
+X_train_lda = lda.fit_transform(X_train_std, y_train)
+
+
