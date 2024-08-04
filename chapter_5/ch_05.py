@@ -367,6 +367,17 @@ plot_decision_regions(X_train_lda, y_train, classifier=lr)
 plt.xlabel('LD 1')
 plt.ylabel('LD 2')
 plt.legend(loc = 'lower left')
-plt.savefig('05_09.png', dpi=300)
+# plt.savefig('05_09.png', dpi=300)
 plt.show()
 
+
+
+X_test_lda = lda.transform(X_test_std)
+
+plot_decision_regions(X_test_lda, y_test, classifier = lr)
+plt.xlabel('LD 1')
+plt.ylabel('LD 2')
+plt.legend(loc = 'lower left')
+plt.tight_layout()
+plt.savefig('05_10.png', dpi=300)
+plt.show()
