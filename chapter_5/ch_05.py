@@ -379,5 +379,63 @@ plt.xlabel('LD 1')
 plt.ylabel('LD 2')
 plt.legend(loc = 'lower left')
 plt.tight_layout()
-plt.savefig('05_10.png', dpi=300)
+# plt.savefig('05_10.png', dpi=300)
 plt.show()
+
+
+
+
+# Using kernel principal component analysis for nonlinear mappings
+
+# Implementing a kernel principal component analysis in Python
+
+
+
+
+def rbf_kernel_pca(X, gamma, n_components):
+        """
+        RBF kernel PCA implementation
+
+        
+        Parameters
+        -----------
+        X: {NumPy ndarray}, shape = [n_examples, n_features]
+
+        gamm: float
+                Tuning parameter of the RBF kernel
+
+        n_components: int
+                Number of principal components to return
+
+        Returns
+        --------
+        X_pc: {NumPy ndarray}, shape = [n_examples, k_features]
+                Projected dataset
+
+        """
+
+        # Calculate pairwise squared Euclidean distances
+        # in the MxN dimensional dataset
+        sq_dists = pdist(X, 'sqeuclidean')
+
+        # Convert pairwise distances into a square matrix
+        mat_sq_dists = squareform(sq_dists)
+
+        # Compute the symmetric kernel matrix
+        K = exp(-gamma * mat_sq_dists)
+
+        # Center the kernel matrix
+        N = K.shape[0]
+        one_n = np.ones((N, N)) / N
+        K = K - one_n.dot(K) - K.dot(one_n) + one_n.dot(K).dot(one_n)
+
+        # Obtaining eigenpairs from the centered kernel matrix
+        # scipy.linalg.eigh returns them in ascending order
+        eigvals, eigvecs = eigh(K)
+        eigvals, eigvecs = eigvals[::-1], eigvecs[:, ::-1]
+
+        # Collect the top k eigenvectors (projected examples)
+        X_pc = np.column_stack([eigenvecs[:, i]
+                                for i in range(n_componenets)])
+        
+        return X_test_pc
