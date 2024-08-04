@@ -349,7 +349,7 @@ plt.xlabel('LD 1')
 plt.ylabel('LD 2')
 plt.legend(loc='lower right')
 plt.tight_layout()
-plt.savefig('05_08.png', dpi=300)
+# plt.savefig('05_08.png', dpi=300)
 plt.show()
 
 
@@ -359,4 +359,14 @@ plt.show()
 lda = LDA(n_components=2)
 X_train_lda = lda.fit_transform(X_train_std, y_train)
 
+
+lr = LogisticRegression(multi_class='ovr', random_state = 1, solver = 'lbfgs')
+lr = lr.fit(X_train_lda, y_train)
+
+plot_decision_regions(X_train_lda, y_train, classifier=lr)
+plt.xlabel('LD 1')
+plt.ylabel('LD 2')
+plt.legend(loc = 'lower left')
+plt.savefig('05_09.png', dpi=300)
+plt.show()
 
